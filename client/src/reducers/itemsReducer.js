@@ -3,5 +3,10 @@ export default function itemsReducer(
     items: []
   },
   action) {
-    return state;
+    switch (action.type) {
+      case 'SET_ITEMS':
+        return { items: action.payload }
+      default:
+        return state;
+    }
 }
