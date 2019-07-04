@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import List from './components/List';
 
 function App() {
   return (
@@ -9,9 +10,7 @@ function App() {
         I'll want a header eventually
       </header> */}
 
-      <div>
-        <h1>Testing!!!</h1>
-      </div>
+      <List />
     </div>
   );
 }
