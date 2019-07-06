@@ -1,7 +1,7 @@
 import React from "react";
 
-const ItemCard = props => {
+const ItemPreview = props => {
   return <li>{ props.name }</li>
 }
 
-export default ItemCard;
+export default ItemPreview;
