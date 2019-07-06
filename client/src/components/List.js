@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { getItems } from '../actions/items';
+import ItemCard from './ItemCard';
 
 class List extends Component {
 
@@ -11,7 +12,7 @@ class List extends Component {
   render() {
     return (
       <ul>
-        { this.props.items.map(item => <li key={item.id}>{item.name}</li>) }
+        { this.props.items.map(item => <ItemCard key={item.id} name={item.name} />) }
       </ul>
     )
   }
