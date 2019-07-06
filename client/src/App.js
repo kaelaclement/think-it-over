@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import List from './components/List';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -9,8 +9,7 @@ function App() {
       {/* <header>
         I'll want a header eventually
       </header> */}
-
-      <List />
+      <Route exact path="/my_list" component={List} />
     </div>
   );
 }
