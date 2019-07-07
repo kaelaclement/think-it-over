@@ -1,18 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from 'react-redux';
-import { getItems } from '../actions/items';
 import ItemPreview from './ItemPreview';
 
-class List extends Component {
-
-  componentDidMount() {
-    this.props.getItems();
-  }
-
+class List extends React.Component {
   render() {
     return (
       <ul>
-        { this.props.items.map(item => <ItemPreview key={item.id} name={item.name} />) }
+        { this.props.items.map(item => <ItemPreview key={item.id} name={item.name} id={item.id} />) }
       </ul>
     )
   }
@@ -25,10 +19,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getItems: () => dispatch(getItems())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps)(List);

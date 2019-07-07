@@ -3,18 +3,45 @@ import './App.css';
 import List from './components/List';
 import { Route } from 'react-router-dom';
 import Home from './components/Home';
+import { connect } from 'react-redux';
+import Item from './components/Item';
+import { getItems } from './actions/items';
 
-function App() {
-  return (
-    <div className="App">
-      {/* <header>
-        I'll want a header eventually
-      </header> */}
-      <Route exact path="/" component={Home} />
-      <Route exact path="/my_list" component={List} />
-      {/* <Route exact path="/:itemId" component={Item} /> */}
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.getItems();
+  }
+
+  render() {
+    const { items } = this.props
+    return (
+      <div className="App">
+        {/* <header>
+          I'll want a header eventually
+        </header> */}
+        <Route exact path="/" component={ Home } />
+        <Route exact path="/my_list" component={ List } />
+        <Route exact path="/my_list/:itemId" render={ props => {
+          const item = items.find(item => item.id.toString() === props.match.params.itemId)
+          console.log(props)
+          return <Item {...item} />
+        }} />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getItems: () => dispatch(getItems())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
