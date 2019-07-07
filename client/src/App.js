@@ -24,7 +24,6 @@ class App extends React.Component {
         <Route exact path="/my_list" component={ List } />
         <Route exact path="/my_list/:itemId" render={ props => {
           const item = items.find(item => item.id.toString() === props.match.params.itemId)
-          console.log(props)
           return <Item {...item} />
         }} />
       </div>
