@@ -19,3 +19,17 @@ export const getItems = () => {
       .then(data => dispatch(setItems(data)))
   }
 }
+
+export const createItem = (itemData) => {
+  return dispatch => {
+    return fetch("http://localhost:3001/api/v1/items", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(itemData)
+    })
+      .then(r => r.json())
+      .then(data => dispatch(addItem(data)))
+  }
+}

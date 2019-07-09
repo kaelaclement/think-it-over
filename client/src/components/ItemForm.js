@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createItem } from '../actions/items';
 
-export default class ItemForm extends React.Component {
+class ItemForm extends React.Component {
 
   state = {
     name: '',
@@ -18,6 +20,9 @@ export default class ItemForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    // check that addItem works - it does
+    // but now I need to actually persist the new item
+    this.props.addItem(this.state)
     this.setState({
       name: '',
       description: '',
@@ -42,3 +47,12 @@ export default class ItemForm extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // change this to call async action
+    addItem: item => dispatch(createItem(item))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ItemForm);
