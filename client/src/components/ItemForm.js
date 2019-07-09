@@ -16,9 +16,19 @@ export default class ItemForm extends React.Component {
     })
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    this.setState({
+      name: '',
+      description: '',
+      price: '',
+      url: ''
+    })
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
         <label htmlFor="description">Description: </label>
@@ -26,7 +36,8 @@ export default class ItemForm extends React.Component {
         <label htmlFor="price">Price: </label>
         <input type="text" name="price" value={this.state.price} onChange={this.handleOnChange} /><br />
         <label htmlFor="url">Product URL: </label>
-        <input type="text" name="url" value={this.state.url} onChange={this.handleOnChange} />
+        <input type="text" name="url" value={this.state.url} onChange={this.handleOnChange} /><br />
+        <input type="submit" />
       </form>
     )
   }
