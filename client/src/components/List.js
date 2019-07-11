@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import ItemPreview from './ItemPreview';
 import { Link } from 'react-router-dom';
+import { removeItem } from '../actions/items';
 
 class List extends React.Component {
 
-  handleClick = event => {
-    alert('that worked')
+  handleClick = itemId => {
+    this.props.removeItem(itemId)
   }
   render() {
     return (
@@ -29,4 +30,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(List);
+const mapDispatchToProps = dispatch => {
+  return {
+    removeItem: itemId => dispatch(removeItem(itemId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
