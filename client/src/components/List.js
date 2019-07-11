@@ -4,6 +4,10 @@ import ItemPreview from './ItemPreview';
 import { Link } from 'react-router-dom';
 
 class List extends React.Component {
+
+  handleClick = event => {
+    alert('that worked')
+  }
   render() {
     return (
       <div>
@@ -11,7 +15,7 @@ class List extends React.Component {
         <Link to="/new">Add an item to your wish list</Link>
 
         <ul>
-          { this.props.items.map(item => <ItemPreview key={item.id} name={item.name} id={item.id} />) }
+          { this.props.items.map(item => <ItemPreview key={item.id} name={item.name} id={item.id} handleClick={this.handleClick} />) }
         </ul>
       </div>
     )
