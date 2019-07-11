@@ -12,6 +12,13 @@ export const addItem = item => {
   }
 }
 
+export const removeItem = itemId => {
+  return {
+    type: "DELETE_ITEM",
+    payload: itemId
+  }
+}
+
 export const getItems = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/items")
