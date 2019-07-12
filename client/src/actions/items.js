@@ -1,3 +1,5 @@
+// action creators
+
 export const setItems = items => {
   return {
     type: "SET_ITEMS",
@@ -19,6 +21,8 @@ export const removeItem = itemId => {
   }
 }
 
+// async actions
+
 export const getItems = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/items")
@@ -38,5 +42,18 @@ export const createItem = (itemData) => {
     })
       .then(r => r.json())
       .then(data => dispatch(addItem(data)))
+  }
+}
+
+export const deleteItem = itemId => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/items/${itemId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: itemId
+    })
+      .then(dispatch(removeItem(itemId)))
   }
 }

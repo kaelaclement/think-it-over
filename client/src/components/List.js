@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import ItemPreview from './ItemPreview';
 import { Link } from 'react-router-dom';
-import { removeItem } from '../actions/items';
+import { deleteItem } from '../actions/items';
 
 class List extends React.Component {
 
@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeItem: itemId => dispatch(removeItem(itemId))
+    removeItem: itemId => dispatch(deleteItem(itemId))
   }
 }
 
