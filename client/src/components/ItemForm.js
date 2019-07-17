@@ -22,7 +22,7 @@ class ItemForm extends React.Component {
     event.preventDefault()
     // check that addItem works - it does
     // but now I need to actually persist the new item
-    this.props.addItem(this.state)
+    this.props.addItem(this.state, this.props.history)
     this.setState({
       name: '',
       description: '',
@@ -51,7 +51,7 @@ class ItemForm extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     // change this to call async action
-    addItem: item => dispatch(createItem(item))
+    addItem: (item, history) => dispatch(createItem(item, history))
   }
 }
 

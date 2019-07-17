@@ -13,6 +13,7 @@ class List extends React.Component {
     return (
       <div>
         
+        {/* this should go somewhere else??? */}
         <Link to="/new">Add an item to your wish list</Link>
 
         <ul>

@@ -31,7 +31,7 @@ export const getItems = () => {
   }
 }
 
-export const createItem = (itemData) => {
+export const createItem = (itemData, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/items", {
       method: "POST",
@@ -41,7 +41,10 @@ export const createItem = (itemData) => {
       body: JSON.stringify(itemData)
     })
       .then(r => r.json())
-      .then(data => dispatch(addItem(data)))
+      .then(data => {
+        dispatch(addItem(data))
+        history.push(`/my_list/${data.id}`)
+      })
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import List from './components/List';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Home from './components/Home';
 import { connect } from 'react-redux';
 import Item from './components/Item';
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
