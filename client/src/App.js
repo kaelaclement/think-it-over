@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import Item from './components/Item';
 import { getItems } from './actions/items';
 import ItemForm from './components/ItemForm';
+import NavBar from './components/NavBar';
 
 class App extends React.Component {
 
@@ -18,9 +19,7 @@ class App extends React.Component {
     const { items } = this.props
     return (
       <div className="App">
-        {/* <header>
-          I'll want a header eventually
-        </header> */}
+        <NavBar />
         <Route exact path="/" component={ Home } />
         <Route exact path="/my_list" component={ List } />
         <Route exact path="/new" component={ItemForm} />
