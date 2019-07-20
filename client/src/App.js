@@ -22,10 +22,10 @@ class App extends React.Component {
         <NavBar />
         <Route exact path="/" component={ Home } />
         <Route exact path="/my_list" component={ List } />
-        <Route exact path="/new" component={ItemForm} />
+        <Route exact path="/new" component={ ItemForm } />
         <Route exact path="/my_list/:itemId" render={ props => {
           const item = items.find(item => item.id.toString() === props.match.params.itemId)
-          return <Item {...item} />
+          return <Item { ...item } />
         }} />
       </div>
     );
