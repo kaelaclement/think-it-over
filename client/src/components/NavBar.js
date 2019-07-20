@@ -1,13 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 const NavBar = () => {
   return (
-    <div>
-      <NavLink to='/' exact>Intro</NavLink>
-      <NavLink to='/new' exact>Add an Item</NavLink>
-      <NavLink to='/my_list' exact>My List</NavLink>
-    </div>
+    <Navbar sticky="top" className="justify-content-around">
+      <Nav>
+        <Nav.Link href="/">Think It Over</Nav.Link>
+        <Nav.Link href='/new'>Add an Item</Nav.Link>
+        <Nav.Link href='/my_list'>My List</Nav.Link>
+      </Nav>
+    </Navbar>
   )
 }
 
