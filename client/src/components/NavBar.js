@@ -4,9 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 
 const NavBar = () => {
   return (
-    <Navbar sticky="top" className="justify-content-around">
+    <Navbar sticky="top" className="justify-content-around p-3">
+      <Navbar.Brand href='/'>Think It Over</Navbar.Brand>
       <Nav>
-        <Nav.Link href="/">Think It Over</Nav.Link>
         <Nav.Link href='/new'>Add an Item</Nav.Link>
         <Nav.Link href='/my_list'>My List</Nav.Link>
       </Nav>
