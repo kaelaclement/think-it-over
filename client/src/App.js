@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import List from './components/List';
 import { Route, withRouter } from 'react-router-dom';
-import Home from './components/Home';
 import { connect } from 'react-redux';
-import Item from './components/Item';
 import { getItems } from './actions/items';
+import List from './components/List';
+import Home from './components/Home';
+import Item from './components/Item';
 import ItemForm from './components/ItemForm';
 import NavBar from './components/NavBar';
+import Missing from './components/Missing';
 
 class App extends React.Component {
 
@@ -25,7 +26,11 @@ class App extends React.Component {
         <Route exact path="/new" component={ ItemForm } />
         <Route exact path="/my_list/:itemId" render={ props => {
           const item = items.find(item => item.id.toString() === props.match.params.itemId)
-          return <Item { ...item } />
+          if (item) {
+            return <Item { ...item } />
+          } else {
+            return <Missing />
+          }
         }} />
       </div>
     );
