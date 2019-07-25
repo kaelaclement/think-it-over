@@ -10,7 +10,7 @@ class List extends React.Component {
   }
   render() {
     return (
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column p-2">
           { this.props.items.map(item => <ItemPreview key={item.id} name={item.name} id={item.id} handleClick={this.handleClick} />) }
         </div>
     )
