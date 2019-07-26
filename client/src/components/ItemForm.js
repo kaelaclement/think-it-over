@@ -20,8 +20,6 @@ class ItemForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    // check that addItem works - it does
-    // but now I need to actually persist the new item
     this.props.addItem(this.state, this.props.history)
     this.setState({
       name: '',
@@ -33,17 +31,20 @@ class ItemForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
-        <label htmlFor="description">Description: </label>
-        <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} /><br />
-        <label htmlFor="price">Price: </label>
-        <input type="text" name="price" value={this.state.price} onChange={this.handleOnChange} /><br />
-        <label htmlFor="url">Product URL: </label>
-        <input type="text" name="url" value={this.state.url} onChange={this.handleOnChange} /><br />
-        <input type="submit" />
-      </form>
+      <div>
+        <h3 className="mt-5">Add to your Think It Over wish list</h3>
+        <form onSubmit={this.handleSubmit} className="m-3">
+          {/* <label htmlFor="name">Name: </label> */}
+          <input required type="text" className="m-2" name="name" aria-label="product name" placeholder="What I want..." value={this.state.name} onChange={this.handleOnChange} /><br />
+          {/* <label htmlFor="description">Description: </label> */}
+          <input required type="text" className="m-2" name="description" aria-label="product description" placeholder="Why I want it..." value={this.state.description} onChange={this.handleOnChange} /><br />
+          {/* <label htmlFor="price">Price: </label> */}
+          <input required type="text" className="m-2" name="price" aria-label="product price" placeholder="What it'll cost me..." value={this.state.price} onChange={this.handleOnChange} /><br />
+          {/* <label htmlFor="url">Product URL: </label> */}
+          <input required type="text" className="m-2" name="url" aria-label="product url" placeholder="Where to get it (URL)..." value={this.state.url} onChange={this.handleOnChange} /><br />
+          <input type="submit" />
+        </form>
+      </div>
     )
   }
 }
