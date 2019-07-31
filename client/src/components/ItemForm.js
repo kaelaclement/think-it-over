@@ -47,7 +47,6 @@ class ItemForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // change this to call async action
     addItem: (item, history) => dispatch(createItem(item, history))
   }
 }
