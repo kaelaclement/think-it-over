@@ -6,7 +6,9 @@ import { deleteItem } from '../actions/items';
 class List extends React.Component {
 
   handleClick = itemId => {
-    this.props.removeItem(itemId)
+    if (window.confirm("delete item?")) {
+      this.props.removeItem(itemId)
+    }
   }
   render() {
     return (
