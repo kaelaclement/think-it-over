@@ -32,6 +32,8 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    # make Chrome happy with a 200 OK
+    render status: :ok
   end
 
   private
